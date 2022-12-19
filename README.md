@@ -1,6 +1,6 @@
 WHY NOT A GIF HERE? TO SET THE MODE.
 
-# Island name
+# Shirogane
 
 Some text about your lovely island
 
