@@ -8,16 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="hotelFunctions.php" method="post">
-        <input type="date" name="arrivalDate">
-        <input type="date" name="departureDate">
-        <select name="room">
-            <option value="1">Economy</option>
-            <option value="2">Standard</option>
-            <option value="3">Luxury</option>
+    <form class="grid grid-cols-1 place-items-center gap-2" action="hotelFunctions.php" method="post">
+        <label for="arrivalDate">arrival date:</label>
+        <input class="bg-stone-300 rounded-lg" type="date" name="arrivalDate">
+        <label for="departureDate">departure date:</label>
+        <input class="bg-stone-300 rounded-lg" type="date" name="departureDate">
+        <label for="room">room type:</label>
+        <select class="bg-stone-300 rounded-lg" name="room" id="room" onchange="priceDisplay()">
+            <option class="bg-stone-300 rounded-lg" value="1">Economy</option>
+            <option class="bg-stone-300 rounded-lg" value="2">Standard</option>
+            <option class="bg-stone-300 rounded-lg" value="3">Luxury</option>
         </select>
-        <input type="text" name="transferCode">
-        <button type="submit" name="booking">Make a reservation</button>
+        <label for="transferCode">transfer code:</label>
+        <input class="bg-stone-300 rounded-lg" type="text" name="transferCode">
+        <div>
+            <button class="bg-stone-300 rounded-lg" type="submit" name="booking">Make a reservation</button>
+            <h3>total: <span id="totalCost"></span></h3>
+        </div>
     </form>
 </body>
+<script src="priceDisplay.js"></script>
 </html>
