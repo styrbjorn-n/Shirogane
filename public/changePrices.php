@@ -18,5 +18,7 @@ function changePrices()
             }
         }
     }
+    header("Location: https://nordberg.one/Shirogane/admin.html");
+    exit();
 }
 changePrices();
