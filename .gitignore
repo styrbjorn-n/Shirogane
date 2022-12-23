@@ -5,3 +5,5 @@ src
 package.json
 package-lock.json
 tailwind.config.js
+composer.json
+composer.lock
