@@ -1,8 +1,8 @@
 <?php
 
-function checkValid() {
-    $transferCode = $_POST;
-    
+function checkValid()
+{
+                    $transferCode = $_POST;
 }
 
 // things made by HANS dont know if its needed
