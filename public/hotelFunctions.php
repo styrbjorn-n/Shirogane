@@ -1,10 +1,35 @@
 <?php
+function checkSelectedDate()
+{
+  $arrivalDate =  $_POST['arrivalDate'];
+  $departureDate = $_POST['departureDate'];
+  if ($arrivalDate && $departureDate != null) {
+    if ($arrivalDate != $departureDate) {
+      echo ('continue <br>');
+    } else {
+      echo ('arrival and departure date cant be the same <br>');
+    }
+    checkValid();
+  } else {
+    echo ('you have to select a date <br>');
+  }
+}
 
 function checkValid()
 {
-                    $transferCode = $_POST;
+  $transferCode = $_POST['transferCode'];
+  if ($transferCode != NULL) {
+    echo ('code is valid <br>');
+  } else {
+    echo ('a Transfer code have to be enterd <br>');
+  }
 }
 
+function sendJSON()
+{
+}
+
+checkSelectedDate();
 // things made by HANS dont know if its needed
 // function connect(string $dbName): object
 // {
