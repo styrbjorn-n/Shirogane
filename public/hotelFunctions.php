@@ -17,11 +17,18 @@ function checkSelectedDate()
 
 function checkValid()
 {
-  $transferCode = $_POST['transferCode'];
-  if ($transferCode != NULL) {
-    echo ('code is valid <br>');
+  require __DIR__ . '/../vendor/autoload.php';
+  $enterdCode = $_POST['transferCode'];
+  $totalCost = $_POST['totalCosts'];
+
+  $client = new GuzzleHttp\Client(['verify' => false]);
+
+  $url = 'https://www.yrgopelago.se/centralbank/transferCode';
+
+  if ($client->post($url, ['transferCode' => $enterdCode, 'totalcost' => $totalCost]) != false) {
+    echo ('work');
   } else {
-    echo ('a Transfer code have to be enterd <br>');
+    echo ('no work');
   }
 }
 

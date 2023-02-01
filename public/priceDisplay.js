@@ -7,7 +7,7 @@ function priceDisplay() {
       var totalCost = document.querySelector('#totalCost');
       var totalPrice = prices['value' + price.value];
 
-      totalCost.innerHTML = totalPrice;
+      totalCost.value = totalPrice;
     });
 }
 priceDisplay();
