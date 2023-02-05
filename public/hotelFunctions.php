@@ -9,7 +9,7 @@ function checkSelectedDate()
     } else {
       echo ('arrival and departure date cant be the same <br>');
     }
-    checkValid();
+    var_dump(checkValid());
   } else {
     echo ('you have to select a date <br>');
   }
@@ -19,13 +19,13 @@ function checkValid()
 {
   require __DIR__ . '/../vendor/autoload.php';
   $enterdCode = $_POST['transferCode'];
-  $totalCost = $_POST['totalCosts'];
+  $totalCost = (int)$_POST['totalCosts'];
 
   $client = new GuzzleHttp\Client(['verify' => false]);
 
   $url = 'https://www.yrgopelago.se/centralbank/transferCode';
 
-  if ($client->post($url, ['transferCode' => $enterdCode, 'totalcost' => $totalCost]) != false) {
+  if ($client->post($url, ['transferCode' => $enterdCode, 'totalCost' => $totalCost]) != false && null) {
     echo ('work');
   } else {
     echo ('no work');
