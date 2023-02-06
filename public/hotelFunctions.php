@@ -6,7 +6,7 @@ function checkSelectedDate()
 {
   $arrivalDate =  $_POST['arrivalDate'];
   $departureDate = $_POST['departureDate'];
-  if ($arrivalDate && $departureDate != null) {
+  if ($arrivalDate || $departureDate != null) {
     if ($arrivalDate != $departureDate) {
       if ($arrivalDate < $departureDate) {
         echo 'good date <br>';
@@ -74,6 +74,12 @@ if (checkSelectedDate()) {
   if (checkValid()) {
     if (Deposit()) {
       echo 'done';
+
+      session_start();
+      $_SESSION['POST'] = $_POST;
+
+      header('location: ' . 'dbManagement.php');
+      die;
     } else {
       return;
     }
