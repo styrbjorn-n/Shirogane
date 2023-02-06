@@ -39,16 +39,44 @@ function checkValid()
   } catch (ClientException $e) {
     echo $e->getMessage();
   }
-  if ($response->getBody() != false && Null) {
+  if ($response->getBody() != false || Null) {
     echo 'work <br>';
     return true;
   } else {
     echo 'Please enter a valid transfer code.';
   }
 }
+
+function Deposit()
+{
+  $client = new GuzzleHttp\Client(['verify' => false]);
+  $user = 'Styrbjörn';
+  $enterdCode = $_POST['transferCode'];
+  $url = 'https://www.yrgopelago.se/centralbank/deposit';
+
+  try {
+    $response = $client->post($url, ['form_params' => [
+      'user' => $user,
+      'transferCode' => $enterdCode
+    ],]);
+  } catch (ClientException $e) {
+    echo $e->getMessage();
+  }
+  if ($response->getBody() != false || NULL) {
+    echo 'work 2 <br>';
+    return true;
+  } else {
+    echo 'transfercode could not be deposited';
+  }
+}
+
 if (checkSelectedDate()) {
   if (checkValid()) {
-    echo 'done';
+    if (Deposit()) {
+      echo 'done';
+    } else {
+      return;
+    }
   } else {
     return;
   }
