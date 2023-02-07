@@ -7,40 +7,62 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>hotel</title>
   </head>
-  <body>
-    <form
-      class="grid grid-cols-1 place-items-center gap-2"
-      action="hotelFunctions.php"
-      method="post"
-    >
-      <label for="arrivalDate">arrival date:</label>
-      <input class="bg-stone-300 rounded-lg" type="date" name="arrivalDate" />
-      <label for="departureDate">departure date:</label>
-      <input class="bg-stone-300 rounded-lg" type="date" name="departureDate" />
-      <label for="room">room type:</label>
-      <select
-        class="bg-stone-300 rounded-lg"
-        name="room"
-        id="room"
-        onchange="priceDisplay()"
+  <body class="bg-amber-50">
+    <div class="flex justify-center">
+      <form
+        class="grid grid-cols-1 place-items-center gap-2 bg-slate-700 w-fit h-fit mt-6 py-4 px-6 rounded-lg drop-shadow-2xl"
+        action="hotelFunctions.php"
+        method="post"
       >
-        <option class="bg-stone-300 rounded-lg" value="1">Economy</option>
-        <option class="bg-stone-300 rounded-lg" value="2">Standard</option>
-        <option class="bg-stone-300 rounded-lg" value="3">Luxury</option>
-      </select>
-      <label for="customer">Name:</label>
-      <input class="bg-stone-300 rounded-lg" type="text" name="customer" />
-      <label for="transferCode">transfer code:</label>
-      <input class="bg-stone-300 rounded-lg" type="text" name="transferCode" />
-      <div>
+        <label for="arrivalDate">arrival date:</label>
+        <input
+          class="bg-stone-300 rounded-lg p-2"
+          type="date"
+          name="arrivalDate"
+          id="arrivalDate"
+          onchange="send()"
+        />
+        <label for="departureDate">departure date:</label>
+        <input
+          class="bg-stone-300 rounded-lg p-2"
+          type="date"
+          name="departureDate"
+          id="departureDate"
+          onchange="send()"
+        />
+        <label for="room">room type:</label>
+        <select
+          class="bg-stone-300 rounded-lg p-2"
+          name="room"
+          id="room"
+          onchange="priceDisplay()"
+        >
+          <option class="bg-stone-300 rounded-lg p-2" value="1">Economy</option>
+          <option class="bg-stone-300 rounded-lg p-2" value="2">
+            Standard
+          </option>
+          <option class="bg-stone-300 rounded-lg p-2" value="3">Luxury</option>
+        </select>
+        <label for="customer">Name:</label>
+        <input
+          class="bg-stone-300 rounded-lg p-2"
+          type="text"
+          name="customer"
+        />
+        <label for="transferCode">transfer code:</label>
+        <input
+          class="bg-stone-300 rounded-lg p-2"
+          type="text"
+          name="transferCode"
+        />
         <button
           type="submit"
-          class="bg-stone-300 rounded-lg"
+          class="bg-stone-300 rounded-lg p-2"
           name="booking"
         >
           Make a reservation
         </button>
-        <h3>
+        <h3 class="bg-stone-300 rounded-lg p-2">
           total cost:
           <input
             type="text"
@@ -52,8 +74,10 @@
             class="bg-transparent"
           />$
         </h3>
-      </div>
-    </form>
+        <div id="hello-world"></div>
+      </form>
+    </div>
   </body>
   <script src="priceDisplay.js"></script>
+  <script src="test.js"></script>
 </html>

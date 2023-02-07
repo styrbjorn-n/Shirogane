@@ -9,3 +9,9 @@ composer.json
 composer.lock
 .editorconfig
 hi.txt
+.vscode
+test.html
+test.css
+test.js
+test.php
+dateChecker.php
